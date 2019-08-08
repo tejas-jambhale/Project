@@ -1,0 +1,117 @@
+.some-page-wrapper {
+    margin: 10px;
+    background-color: red;
+  }
+  
+  .row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  
+  .column {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+  }
+  
+  .blue-column {
+    background-color: linen;
+    height: 50px;
+  }
+  
+  .green-column {
+    background-color: lavender;
+    height: 50px;
+  }
+  div#examplePage {
+    color: #000;
+    font-family: Verdana, Arial, Helvetica, San-serif;
+    font-size: x-small;
+    text-align: left;
+    width: 1500px;
+    margin: 0 auto;
+    padding: 0;
+}
+ 
+h1 {
+    font-size: 1.8em;
+    font-weight: bold;
+    margin: 10px 0 5px;
+}
+ 
+div#example {
+    background: #c3c1c1 none repeat-x scroll left top;
+    width: 840px;
+    margin: 1px 0 3px;
+}
+ 
+div#example h3 {
+    font-size: xx-small;
+    font-style: italic;
+    padding: 0;
+    margin: 0 0px 0;
+    line-height: 14px;
+}
+ 
+.container {
+    background: #fff none;
+    border: 1px solid #000;
+    height: 50px;
+    margin: 0 ;
+    width: 10035px;
+}
+ 
+.container .wrap {
+    width: 1520px;
+    left: 5px;
+    top: 10px;
+    overflow: hidden;
+    position: relative;
+    line-height: normal;
+    font-size-adjust: none;
+}
+ 
+/**
+ * Stock Ticker styling
+ */
+.stockTicker {
+    font-family: Verdana, Arial, Helvetica, San-serif;
+    font-size: 18;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    list-style: none;
+}
+
+.stockTicker li,
+.stockTicker span {
+    margin: 0 10px 0;
+    display: inline-block;
+}
+ 
+.stockTicker .up {
+    color: green;
+    padding-left: 2px;
+}
+ 
+.stockTicker .down {
+    color: red;
+    margin: 0;
+    padding-left: 10px;
+}
+ 
+.stockTicker .eq {
+    margin: 0;
+    padding-left: 10px;
+}
+ 
+div.stockTicker .quote {
+    margin: 0;
+    font-weight: bold;
+    padding-left: 10 px;
+}
+ 
