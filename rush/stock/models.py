@@ -7,7 +7,7 @@ class Stocks(models.Model):
     ticker = models.CharField(max_length = 10)
     currentprice = models.FloatField()
     change = models.FloatField()
-    lastprice = models.FloatField(null='true',blank='true')
+    lastprice = models.FloatField()
     updated = models.BooleanField(default='False',null='true')
     percent = models.FloatField(null='true',blank='true')
     marketcap = models.FloatField(null='true',blank='true')

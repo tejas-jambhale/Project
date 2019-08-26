@@ -1,0 +1,137 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<title>ESSENCE</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href={% static "Essence1.css" %}>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type = "text/javascript" src = {% static "marquee.js"%}></script>
+
+
+
+<body style="background-color: linen">
+
+
+
+<!-- Top menu -->
+<div class="w3-top">
+  <div class="w3-white w3-xlarge" style="max-width:1500px;margin:auto">
+    <div class="w3-button w3-padding-16 w3-left">LOGO</div>
+    <div class="w3-right w3-padding-16">ABC</div>
+    <div class="w3-center w3-padding-16" style="font-family:'Times New Roman', Times, serif">ESSENCE</div>
+  </div>
+</div>
+  
+<!-- MAIN STOCKS -->
+<div class="w3-main w3-content w3-padding " style="max-width:1500px;margin-top:70px">
+
+    <div class="row ">
+        <div class="columntop" style="padding: 10pt;text-align:center;">
+            <div class='green-column'>
+                <h2> Team A</h2>
+        </div>
+        </div>
+        <div class="columntop" style="padding: 10pt;text-align:center;">
+            <div class='green-column'>
+                <h2> Team B</h2>
+              </div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="columntop " style="padding: 10pt;text-align:center;">
+            <div class='green-column'>
+                <h2>Team C</h2>
+              </div>
+        </div>
+        <div class="columntop " style="padding: 10pt;text-align:center;">
+            <div class='green-column'>
+                <h2> Team D</h2>
+          </div>
+        </div>
+      </div>
+</div>
+
+<div class="w3-main w3-content w3-padding" style="max-width:1550px;margin-top:0px">
+
+    <!---Ticker-->
+        <div class="ticker-wrap">
+                <div class="ticker">
+                  {% for st in Stock %}
+                        <div class="ticker__item">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;{{st}}  &nbsp;&nbsp;{{st.currentprice}}  </div>
+                        <div class="ticker__itemprice"> -{{st.change}}</div>
+                        {%endfor%}
+                        
+                </div>
+            </div>
+</div>
+
+<div class="w3-main w3-content w3-padding" style="max-width:1550px;margin-top:40px">
+
+    <!---Ticker-->
+        <div class="ticker-wrap1">
+                <div class="ticker1">
+                    {% for st in Stock %}
+                    <div class="ticker__item">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|{{st}}  &nbsp;&nbsp;{{st.currentprice}}</div>
+                   
+
+                    <div class="ticker__item1"> +{{st.change}}</div>
+                    {%endfor%}
+                </div>
+            </div>
+</div>
+
+<div class="w3-main w3-content w3-padding" style="max-width:1500px;margin-top:70px">
+
+    <div class="row">
+            <div class="column" style="background-color:black;color:white;font-family:cursive;width:100%">
+                    <div class="column"> <h3>Stocks UP </h3></div>
+                 <div class = "column">
+                  <h3>Stocks DOWN</h3></div>
+                  
+                </div>
+              
+        <div class="column" style="width:100%">
+            <div class="column"> <p>Stock 1 $(Price)</p></div>
+         <div class = "column">
+          <p>Stock 1 $(Price)</p></div>
+          
+        </div>
+        <div class="column" style="width:100%">
+            <div class="column"> <p>Stock 2 $(Price)</p></div>
+         <div class = "column">
+          <p>Stock 2 $(Price)</p></div>
+          
+        </div>
+        <div class="column" style="width:100%">
+            <div class="column"> <p>Stock 3 $(Price)</p></div>
+         <div class = "column">
+          <p>Stock 3 $(Price)</p></div>
+          
+        </div>
+        <div class="column" style="width:100%">
+            <div class="column"> <p>Stock 4 $(Price)</p></div>
+         <div class = "column">
+          <p>Stock 4 $(Price)</p></div>
+          
+        </div>
+        <div class="column" style="width:100%">
+            <div class="column"> <p>Stock 6 $(Price)</p></div>
+         <div class = "column">
+          <p>Stock 6 $(Price)</p></div>
+          
+        </div>
+        <div class="column" style="width:100%">
+            <div class="column"> <p>Stock 7 $(Price)</p></div>
+         <div class = "column">
+          <p>Stock 7 $(Price)</p></div>
+          
+        
+      </div>
+   
+</div>
+
