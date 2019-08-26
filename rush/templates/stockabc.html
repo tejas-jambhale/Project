@@ -1,7 +1,7 @@
-{% load staticfiles %}
+{% load static %}
 <!DOCTYPE html>
 <html>
-<title>ESSENCE</title>
+<title>RUSH</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -13,85 +13,415 @@
 
 
 
-<body style="  background-color: rgb(30,34,39);">
 
 
+
+        <script>
+                //var texts = ["example1", "example2", "example3"];
+                //var count = 0;
+                //function changeText() {
+                //   $(".name").text(texts[count]);
+                //  count < 3 ? count++ : count = 0;
+                //}
+                //setInterval(changeText, 2000);
+                $("#card").flip();
+                alert("fd");
+                </script>
 
  
 <div class="w3-top">
-  <div class="w3-white w3-xlarge" style="max-width:1500px;margin:auto">
-    <div class="w3-button w3-padding-16 w3-left">LOGO</div>
-    <div class="w3-right w3-padding-16">ABC</div>
-    <div class="w3-center w3-padding-16" style="font-family:'Times New Roman', Times, serif">ESSENCE</div>
-  </div>
+  <div class="w3-white w3-xlarge" style="max-width:1650px;margin:auto;height:85px">
+    <div class="w3-padding-12 w3-left"><img src = {%static "essence.jpg" %} height=70px width=200px padding=-30px> </div>
+   
+    <div class="w3-padding-12 w3-right"><font size="8px">RUSH</font></div>
+    
+    <div class="w3-padding-12 w3-center"><img src = {%static "abc.jpg" %} height=70px width=110px padding=-30px></div>
+
+
 </div>
 
-<!-- MAIN STOCKS -->
-<div class="w3-main w3-content w3-padding " style="max-width:1500px;margin-top:70px">
+
+<div class="w3-main w3-content w3-padding " style="max-width:1550px;margin-top:-10px">
 
     <div class="row ">
-        {% for t in teams1 %}
+            <div id="draggable">
+                    <div id="dashboard" class="shadow">
+                      <div class="widget-inner loadable" id="a">
+                            {% for t in teams1 %}
         
         
-        <div class="columntop" style="padding: 10pt;text-align:center;width: 33.33%;height:60px;">
-            <div class='green-column'>
-                
-                <h2> {{t}}&nbsp;&nbsp;&nbsp;&nbsp; <font color="blue">{{t.balance}}</font> &nbsp;&nbsp;&nbsp;&nbsp;<font color="red">{{t.change}}</font></h2>
-              
-        </div>
-        </div>
-        {% endfor %}
+                            <div class="columntop" style="padding: 10pt;text-align:center;width: 33.33%;height:60px;">
+                                <div class='green-column'>
+                                    
+                                    <h2> <font color="white">{{t}}</font>&nbsp;&nbsp;&nbsp;&nbsp; <font color="#A8C7FF">{{t.balance}}</font> &nbsp;&nbsp;&nbsp;&nbsp;<font color="lightgreen">+{{t.change}}</font></h2>
+                                  
+                            </div>
+                            </div>
+                            {% endfor %}
+                      </div>
+                      <div class="widget-inner loadable" id="b">
+                            {% for t in teams1 %}
+        
+        
+                            <div class="columntop" style="padding: 10pt;text-align:center;width: 33.33%;height:60px;">
+                                <div class='green-column'>
+                                    
+                                    <h2> <font color="white">{{t}}</font>&nbsp;&nbsp;&nbsp;&nbsp; <font color="#A8C7FF">{{t.balance}}</font> &nbsp;&nbsp;&nbsp;&nbsp;<font color="lightgreen">+{{t.change}}</font></h2>
+                                  
+                            </div>
+                            </div>
+                            {% endfor %}
+                      </div>
+                    </div>
+                    </div>
+        
     </div>
        
-        <div class="row ">
-            {% for t in teams2 %}
-            
-            
-            <div class="columntop" style="padding: 10pt;text-align:center;width: 33.33%;height: 60px;">
-                <div class='green-column'>
-                    
-                    <h2> {{t}}&nbsp;&nbsp;&nbsp;&nbsp; <font color="blue">{{t.balance}}</font>&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">{{t.change}}</font></h2>
-                  
-            </div>
-            </div>
-            {% endfor %}
+    <div class="row ">
+            <div id="draggable">
+                    <div id="dashboard" class="shadow">
+                      <div class="widget-inner loadable" id="a">
+                       
+                            {% for t in teams %}
         
-      </div>
+        
+                            <div class="columntop" style="padding: 10pt;text-align:center;width: 33.33%;height:60px;">
+                                <div class='green-column'>
+                                    
+                                    <h2> <font color="white">{{t}}</font>&nbsp;&nbsp;&nbsp;&nbsp; <font color="#A8C7FF">{{t.balance}}</font> &nbsp;&nbsp;&nbsp;&nbsp;<font color="red">{{t.change}}</font></h2>
+                                  
+                            </div>
+                            </div>
+                            {% endfor %}
+                      </div>
+                      <div class="widget-inner loadable" id="b">
+                            {% for t in teams %}
+        
+        
+                            <div class="columntop" style="padding: 10pt;text-align:center;width: 33.33%;height:60px;">
+                                <div class='green-column'>
+                                    
+                                    <h2><font color="white">{{t}}</font>&nbsp;&nbsp;&nbsp;&nbsp; <font color="#A8C7FF">{{t.balance}}</font> &nbsp;&nbsp;&nbsp;&nbsp;<font color="red">{{t.change}}</font></h2>
+                                  
+                            </div>
+                            </div>
+                            {% endfor %}
+                      </div>
+                    </div>
+                    </div>
+        
+    </div>
       
       
       
 </div>
 
-<div class="w3-main w3-content w3-padding" style="max-width:1550px;margin-top: -5px">
+<div class="w3-main w3-content w3-padding" style="max-width:1550px;margin-top: 10px">
 
     <!---Ticker-->
         <div class="ticker-wrap">
                 <div class="ticker">
-                  {% for st in Stock %}
+                  {% for st in Stock1 %}
+                  {% if st.change < 0 %}
                         <div class="ticker__item">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;{{st}}  &nbsp;&nbsp;{{st.currentprice}}  </div>
-                        <div class="ticker__itemprice"> -{{st.change}}</div>
+                        <div class="ticker__itemprice"> {{st.change}}</div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Red_Arrow_Down.svg" width="15" height="22">
+                    {%endif%}
+                    {% if st.change >= 0 %}
+                    <div class="ticker__item">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;{{st}}  &nbsp;&nbsp;{{st.currentprice}}  </div>
+                    <div class="ticker__item1"> {{st.change}}</div>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Dark_Green_Arrow_Up.svg" width="15" height="22">
+                    {%endif%}
                         {%endfor%}
                         
                 </div>
             </div>
 </div>
 
-<div class="w3-main w3-content w3-padding" style="max-width:1550px;margin-top:46px">
+<div class="w3-main w3-content w3-padding" style="max-width:1600px;margin-top:46px">
 
     <!---Ticker-->
         <div class="ticker-wrap1">
                 <div class="ticker1">
-                    {% for st in Stock %}
-                    <div class="ticker__item">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|{{st}}  &nbsp;&nbsp;{{st.currentprice}}</div>
-                   
-
-                    <div class="ticker__item1"> +{{st.change}}</div>
-                    {%endfor%}
+                    {{% for st in Stock %}
+                    {% if st.change < 0 %}
+                          <div class="ticker__item">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;{{st}}  &nbsp;&nbsp;{{st.currentprice}}  </div>
+                          <div class="ticker__itemprice"> {{st.change}}</div>
+                          <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Red_Arrow_Down.svg" width="15" height="22">
+                      {%endif%}
+                      {% if st.change >= 0 %}
+                      <div class="ticker__item">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;{{st}}  &nbsp;&nbsp;{{st.currentprice}}  </div>
+                      <div class="ticker__item1"> {{st.change}}</div>
+                      <img src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Dark_Green_Arrow_Up.svg" width="15" height="22">
+                      {%endif%}
+                          {%endfor%}
                 </div>
             </div>
 </div>
 
-<table class = "cust">
+<div style="margin-left: 30px;text-align:center;">
+  <div class="row" style="margin-bottom:-65px;margin-left: -3px;">
+    <div id="draggable"></div>
+    <div id="dashboard" class="shadow">
+  <div class="tr">
+    <div class="td nametitle">Name</div>
+    <div class="td othertitle">Price</div>
+    <div class="td othertitle">Change</div>
+    <div class="td othertitle">%</div>
+    <div class="td othertitle">LTP</div>
+</div>    </div>    </div>    
+
+
+<div style="">
+{% for rec in stockrecent2 %}{% for rec1 in stockrecent3 %}
+{% if forloop.counter == forloop.parentloop.counter %}
+<div class="row" style="">
+  <div id="draggable"></div>
+  <div id="dashboard" class="shadow">
+      
+      <div class="widget-inner loadable" id="a1">
+        <div class="tr">
+          <div class="td name"style="background-color:aliceblue">{{ rec1 }}</div>
+          <div class="td other">{{ rec1.currentprice }}</div>
+          <div class="td other"style="background-color:aliceblue"><font color="red">{{rec1.change}}</font></div>
+          <div class="td other"><font color="red">{{rec1.percent}}%</font></div>
+          <div class="td other"style="background-color:aliceblue"><font color="brown">{{rec1.lastprice}}</font></div>
+      </div>    
+         
+         
+      </div>
+     
+      <div class="widget-inner loadable" id="b1">
+          
+        <div class="tr">
+          <div class="td name"style="background-color:aliceblue">{{ rec }}</div>
+          <div class="td other">{{ rec.currentprice }}</div>
+          <div class="td other"style="background-color:aliceblue"><font color="green">+{{rec.change}}</font></div>
+          <div class="td other"><font color="green">{{rec.percent}}%</font></div>
+          <div class="td other"style="background-color:aliceblue"><font color="brown">{{rec.lastprice}}</font></div>
+          </div>
+                  
+  </div>
+
+</div>
+</div>
+{% endif %}
+{% endfor %}{% endfor %}
+<br><br><br>
+</div></div>
+
+<div class="row" style="float:right;margin-left:750px;text-align:center;width:770px;margin-top:-535px;margin-bottom:-90px">
+  <div id="draggable"></div>
+  <div id="dashboard" class="shadow">
+<div class="tr">
+  <div class="td nametitle">Name</div>
+  <div class="td othertitle">Price</div>
+  <div class="td othertitle">Change</div>
+  <div class="td othertitle">%</div>
+  <div class="td othertitle">LTP</div>
+</div>    </div>    </div>    
+
+<div style="float:right;margin-left:800px;text-align:right;width:750px;margin-top:-485px">
+{% for rec in stockrecent %}{% for rec1 in stockrecent1 %}
+{% if forloop.counter == forloop.parentloop.counter %}
+<div class="row" style="">
+  <div id="draggable"></div>
+  <div id="dashboard" class="shadow">
+      
+      <div class="widget-inner loadable" id="a1">
+
+         
+              <div class="tr">
+              <div class="td name"style="background-color:aliceblue">{{ rec }}</div>
+              <div class="td other">{{ rec.currentprice }}</div>
+              <div class="td other"style="background-color:aliceblue"><font color="green">+{{rec.change}}</font></div>
+              <div class="td other"><font color="green">{{rec.percent}}%</font></div>
+              <div class="td other"style="background-color:aliceblue"><font color="brown">{{rec.lastprice}}</font></div>
+              </div>
+         
+      </div>
+     
+      <div class="widget-inner loadable" id="b1">
+          
+                <div class="tr">
+              <div class="td name"style="background-color:aliceblue">{{ rec1 }}</div>
+              <div class="td other" >{{ rec1.currentprice }}</div>
+              <div class="td other"style="background-color:aliceblue"><font color="red">{{rec1.change}}</font></div>
+              <div class="td other"><font color="red">{{rec1.percent}}%</font></div>
+              <div class="td other"style="background-color:aliceblue"><font color="brown">{{rec1.lastprice}}</font></div>
+          </div>      
+  </div>
+
+</div>
+</div>
+{% endif %}
+{% endfor %}{% endfor %}
+</div>
+
+<!--
+    <table class = "cust" style="background-color: white;">
+        <tr>
+            <td class="nametitle">NAME</td>
+            <td class="othertitle">Value</td>
+            <td class="othertitle">Change</td>
+            <td class="othertitle">%</td>
+            <td class="othertitle">LTP</td>
+        
+        </tr>
+        {%for rec in stockrecent1 %}
+        <tr>
+       
+        <td class="name">{{rec}}</td>
+        <td class="other">{{rec.currentprice}}</td>
+        <td class="other"><font color="green">{{rec.change}}</font></td>
+        <td class="other"><font color="green">{{rec.percent}}%</font></td>
+        <td class="other"><font color="brown">{{rec.lastprice}}</font></td>
+        
+    </tr>
+    {% endfor %}
+    </table>
+-->
+<!--
+
+    <div class="w3-main w3-content w3-padding " style="max-width:750px;margin-top:50px;float:right;">
+
+            <div class="row" style="margin-top:-15px;width:760px;margin-right:120px">     
+                    <div class="columntop" style="padding: 10pt;text-align:center;width: 20%;height:60px;">
+                    <div class='green-column'>
+                                            
+                    <h2> {{t}}&nbsp;&nbsp;&nbsp;&nbsp; <font color="blue">{{t.balance}}</font> &nbsp;&nbsp;&nbsp;&nbsp;<font color="red">{{t.change}}</font></h2>
+                                          
+                    </div>
+                    </div>
+                    <div class="columntop" style="padding: 10pt;text-align:center;width: 20%;height:60px;">
+                            <div class='green-column'>
+                                                    
+                            <h2> {{t}}&nbsp;&nbsp;&nbsp;&nbsp; <font color="blue">{{t.balance}}</font> &nbsp;&nbsp;&nbsp;&nbsp;<font color="red">{{t.change}}</font></h2>
+                                                  
+                            </div>
+                            </div>
+                            <div class="columntop" style="padding: 10pt;text-align:center;width: 20%;height:60px;">
+                                    <div class='green-column'>
+                                                            
+                                    <h2> {{t}}&nbsp;&nbsp;&nbsp;&nbsp; <font color="blue">{{t.balance}}</font> &nbsp;&nbsp;&nbsp;&nbsp;<font color="red">{{t.change}}</font></h2>
+                                                          
+                                    </div>
+                                    </div>
+                                    <div class="columntop" style="padding: 10pt;text-align:center;width: 20%;height:60px;">
+                                            <div class='green-column'>
+                                                                    
+                                            <h2> {{t}}&nbsp;&nbsp;&nbsp;&nbsp; <font color="blue">{{t.balance}}</font> &nbsp;&nbsp;&nbsp;&nbsp;<font color="red">{{t.change}}</font></h2>
+                                                                  
+                                            </div>
+                                            </div>
+                                            <div class="columntop" style="padding: 10pt;text-align:center;width: 20%;height:60px;">
+                                                    <div class='green-column'>
+                                                                            
+                                                    <h2> {{t}}&nbsp;&nbsp;&nbsp;&nbsp; <font color="blue">{{t.balance}}</font> &nbsp;&nbsp;&nbsp;&nbsp;<font color="red">{{t.change}}</font></h2>
+                                                                          
+                                                    </div>
+                                                    </div>
+                                   
+                    </div>
+                             
+               
+<div style="margin-top:-15px;width:760px;margin-right:120px">
+            {% for t in stockrecent1 %}  
+            <div class="row" style="margin-top:0px">
+                    <div id="draggable">
+                            <div id="dashboard" class="shadow">
+                                   
+                              <div class="widget-inner loadable" id="a">
+                                    
+                
+                
+                                    <div class="columntop" style="padding: 10pt;text-align:center;width: 20%;height:60px;">
+                                        <div class='green-column'>
+                                            
+                                            <h2> {{t}}</h2>
+                                                             
+                                    </div></div>
+                                    <div class="columntop" style="padding: 10pt;text-align:center;width: 20%;height:60px;">
+                                    <div class='green-column'>
+                                            
+                                            <h2>  <font color="blue">{{t.currentprice}}</font> </h2>
+                                                             
+                                    </div>
+                                </div>
+                                    <div class="columntop" style="padding: 10pt;text-align:center;width: 20%;height:60px;">
+                                    <div class='green-column'>
+                                            
+                                            <h2> <font color="red">{{t.change}}</font></h2>
+                                                             
+                                    </div>
+                                    </div>
+                                    <div class="columntop" style="padding: 10pt;text-align:center;width: 20%;height:60px;">
+                                            <div class='green-column'>
+                                                
+                                                <h2> {{t.percent}}</h2>
+                                                                 
+                                        </div></div>
+                                        <div class="columntop" style="padding: 10pt;text-align:center;width: 20%;height:60px;">
+                                                <div class='green-column'>
+                                                    
+                                                    <h2> {{t.lastprice}}</h2>
+                                                                     
+                                            </div></div>
+                                    
+                                </div>
+                            
+                              <div class="widget-inner loadable" id="b">
+                                  
+                
+                
+                                    
+                
+                                    <div class="columntop" style="padding: 10pt;text-align:center;width: 20%;height:60px;">
+                                            <div class='green-column'>
+                                                
+                                                <h2> {{t}}</h2>
+                                                                 
+                                        </div></div>
+                                        <div class="columntop" style="padding: 10pt;text-align:center;width: 20%;height:60px;">
+                                        <div class='green-column'>
+                                                
+                                                <h2>  <font color="blue">{{t.currentprice}}</font> </h2>
+                                                                 
+                                        </div>
+                                    </div>
+                                        <div class="columntop" style="padding: 10pt;text-align:center;width: 20%;height:60px;">
+                                        <div class='green-column'>
+                                                
+                                                <h2> <font color="red">{{t.change}}</font></h2>
+                                                                 
+                                        </div>
+                                        </div>
+                                        <div class="columntop" style="padding: 10pt;text-align:center;width: 20%;height:60px;">
+                                                <div class='green-column'>
+                                                    
+                                                    <h2> {{t.percent}}</h2>
+                                                                     
+                                            </div></div>
+                                            <div class="columntop" style="padding: 10pt;text-align:center;width: 20%;height:60px;">
+                                                    <div class='green-column'>
+                                                        
+                                                        <h2> {{t.lastprice}}</h2>
+                                                                         
+                                                </div></div>
+                                   
+                              </div>
+                              
+                            </div>  
+                        
+                        </div>
+                            </div>
+                            {% endfor %}
+                
+            </div>
+        </div>
+-->
+<!--
+<table class = "cust1" style="background-color: white">
     <tr>
         <td class="nametitle">NAME</td>
         <td class="othertitle">Value</td>
@@ -100,40 +430,432 @@
         <td class="othertitle">LTP</td>
     
     </tr>
-    {%for rec in stockrecent %}
+
+    {% for rec in stockrecent1 %}
     <tr>
-   
-    <td class="name">{{rec}}</td>
-    <td class="other">{{rec.currentprice}}</td>
-    <td class="other"><font color="green">{{rec.change}}</font></td>
-    <td class="other"><font color="green">{{rec.percent}}%</font></td>
-    <td class="other"><font color="brown">{{rec.lastprice}}</font></td>
-    
-</tr>
-{% endfor %}
-
-
-<table class = "cust1">
-        <tr>
-                <td class="nametitle">NAME</td>
-                <td class="othertitle">Value</td>
-                <td class="othertitle">Change</td>
-                <td class="othertitle">%</td>
-                <td class="othertitle">LTP</td>
-        
-        </tr>
-        {%for rec in stockrecent %}
-        <tr>
-       
-        <td class="name">{{rec}}</td>
+        <td class="name1">{{rec}}</td>
         <td class="other">{{rec.currentprice}}</td>
-        <td class="other"><font color="red">{{rec.change}}</font></td>
-        <td class="other"><font color="red">{{rec.percent}}%</font></td>
-        <td class="other"><font color="brown">{{rec.lastprice}}</font></td>
-        
+        <td class="other">{{rec.change}}</td>
+        <td class="other">{{rec.percent}}%</td>
+        <td class="other">{{rec.lastprice}}</td>
     </tr>
     {% endfor %}
 
+    {% for rec in stockrecent %}
+    <tr>
+        <td class="name1">{{rec}}</td>
+        <td class="other">{{rec.currentprice}}</td>
+        <td class="other">{{rec.change}}</td>
+        <td class="other">{{rec.percent}}%</td>
+        <td class="other">{{rec.lastprice}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  -->
+   <!-- 
+    <div class="row" style="margin-top:90px">
+            <div id="draggable">
+                    <div id="dashboard" class="shadow">
+                               
+                            <div class="widget-inner loadable" id="a">
+                                    {% for rec in stockrecent1 %}
+                
+                
+                                    <tr>
+                                        <td class="name">{{rec}}</td>
+                                        <td class="other">{{rec.currentprice}}</td>
+                                        <td class="other">{{rec.change}}</td>
+                                        <td class="other">{{rec.percent}}%</td>
+                                        <td class="other">{{rec.lastprice}}</td>
+                                        </tr>
+                                    {% endfor %}
+                              </div>
+                              <div class="widget-inner loadable" id="b">
+                                    {% for rec in stockrecent1 %}                
+                                    <tr>
+                                        <td class="name">{{rec}}</td>
+                                        <td class="other">{{rec.currentprice}}</td>
+                                        <td class="other">{{rec.change}}</td>
+                                        <td class="other">{{rec.percent}}%</td>
+                                        <td class="other">{{rec.lastprice}}</td>
+                                    </tr>
+                                
+                                    {% endfor %}
 
-</table>
+    </div></div></div></div>
+</table>-->
 
+
+
+
+<style>
+
+body,h1,h3,h4,h5,h6 {font-family:Helvetica}
+h2{font-family:Helvetica}
+body{
+   background-color: rgb(51, 50, 119);
+}
+.w3-bar-block .w3-bar-item {padding:50px}
+.column {
+    background:blue;
+    color: black;
+    text-align: center;
+    height:60px;
+    border: whitesmoke;
+  border-width: 0.5pt;
+  border-style: solid;
+  float: left;
+  width: 50%;
+}
+
+.green-column {
+    width: 100%;
+    height: 60px;
+  }
+.columntop {
+  border-radius: 15px;
+  grid-row-gap: 10;
+  background: rgba(8, 31, 75, 0.76);
+  border:whitesmoke;
+  border-width: 1.5pt;
+  border-style: solid;
+  float: left;
+  width: 50%;
+}
+
+.cust{
+  max-width:1550px;margin-top:65px;margin-left:14px;
+  float: left;
+  border-collapse: collapse;
+  
+}
+.cust1{
+  max-width:1500px;margin-top:65px;margin-right:6px;
+ float: right;
+ border-collapse: collapse;
+}
+.name{
+    column-width: 227px;
+  font-size: 30px;
+  height: 60px;
+  background:white;
+  border-bottom:1pt solid black;border-radius: 15px;
+}
+
+
+.tr { display: table-row;}
+.td {display: table-cell;}
+
+
+.other{
+    column-width: 128px;
+  font-size: 30px;
+  height: 60px;
+  background:white;
+  border-bottom:1pt solid black;border-radius: 15px;
+}
+
+
+.nametitle{
+  column-width: 225px;
+  height: 55px;
+  font: white;
+  color: white; 
+  font-size: 30px;
+  background-color:rgba(8, 31, 75, 0.76);border-radius: 15px;
+}
+.othertitle{
+
+  column-width: 128px;
+    font: black;
+    height: 55px;
+    color: white; 
+    font-size: 30px;
+    background-color:rgba(8, 31, 75, 0.76);
+    border-radius: 15px;
+    }
+
+
+.columntop1 {
+  grid-row-gap: 10;
+  
+  border:whitesmoke;
+  border-width: 1.5pt;
+  border-style: solid;
+  float: left;
+  width: 100%;
+  background: rgb(30,34,39);
+  
+
+}
+
+/*Ticker*/
+
+* { box-sizing: border-box; }
+
+
+@-webkit-keyframes ticker {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@keyframes ticker {
+  from {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+    margin-right: 20px
+    
+  }
+
+  to {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+.ticker-wrap {
+  
+  position: fixed;
+  bottom: 20;
+  width: 100%;
+  overflow: hidden;
+  height: 4rem;
+  background-color: rgba(rgb(178, 201, 207), 0.9); 
+  padding-left: 100%;
+  box-sizing: content-box;
+  border: 1px solid #ccc;
+  background: rgb(221, 232, 253)
+}
+
+.ticker-wrap1 {
+  
+    position: fixed;
+    bottom: 30;
+    width: 100%;
+    overflow: hidden;
+    height: 4rem;
+    background-color: rgba(#000, 0.9); 
+    padding-left: 100%;
+    box-sizing: content-box;
+    border: 1px solid #ccc;
+    background: rgb(198, 229, 247);
+  }
+  .ticker {
+  
+    display: inline-block;
+    height: 4rem;
+    line-height: 4rem;  
+    white-space: nowrap;
+    padding-right: 100%;
+    box-sizing: content-box;
+
+    -webkit-animation-iteration-count: infinite; 
+            animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+   -webkit-animation-name: ticker;
+           animation-name: ticker;
+    -webkit-animation-duration: 135s;
+            animation-duration: 135s;
+  }
+
+  .ticker1 {
+  
+    display: inline-block;
+    height: 4rem;
+    line-height: 4rem;  
+    white-space: nowrap;
+    padding-right: 100%;
+    box-sizing: content-box;
+    
+
+    -webkit-animation-iteration-count: infinite; 
+            animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+   -webkit-animation-name: ticker;
+           animation-name: ticker;
+    -webkit-animation-duration: 125s;
+            animation-duration: 125s;
+  }
+    .ticker__item {
+
+      display: inline-block;
+      text-shadow: -1px -1px 1px #fff, 1px 1px 1px #000;
+      padding: 0 0.2rem;
+      font-size: 30px;
+      color:black;   
+
+    }
+    .ticker__itemprice {
+
+      display: inline-block;
+      text-shadow: -1px -1px 1px #fff, 1px 1px 1px #000;
+      padding: 0 0.4rem;
+      font-size: 26px;
+      color:red;   
+
+    }
+
+    .ticker__item1 {
+
+        display: inline-block;
+        text-shadow: -1px -1px 1px #fff, 1px 1px 1px #000;
+        padding: 0 0.4rem;
+        font-size: 26px;
+        color: green;   
+  
+      }
+
+body { padding-bottom: 5rem; }
+h1,h2,p {padding: 0 5%;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: inline;
+  clear: both;
+}
+
+
+.row1{
+  max-width:1550px;margin-top:65px;margin-left:14px;
+  float: left;
+  border-collapse: collapse; 
+}
+
+#draggable {
+  position: relative;
+  margin: 10px auto;
+  width: 1550px;
+  height: 40px;
+  z-index: 1;
+}
+
+#dashboard {
+  -webkit-perspective: 1000;
+  perspective: 1000;
+}
+
+#dashboard {
+  width: 100%;
+  height: 100%;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;  
+  -webkit-transition: all 1.0s linear;
+  transition: all 1.0s linear;
+}
+
+.loadable {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+#a{
+  -webkit-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
+  -webkit-animation: mymoveback 20s infinite;  
+  animation: mymoveback 20s infinite;  
+  text-align: center;
+}
+#b {
+  display: block;
+  box-sizing: border-box;
+  padding: 10px;
+  color: black;
+  text-align: center;
+
+  -webkit-animation: mymove 20s infinite;
+  animation: mymove 20s infinite;
+}
+
+#a1{
+  -webkit-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
+  -webkit-animation: mymoveback 25s infinite;  
+  animation: mymoveback 25s infinite;  
+  text-align: center;
+}
+#b1 {
+  display: block;
+  box-sizing: border-box;
+  padding: 10px;
+  color: black;
+  text-align: center;
+
+  -webkit-animation: mymove 25s infinite;
+  animation: mymove 25s infinite;
+}
+/* Chrome, Safari, Opera */
+@-webkit-keyframes mymove {
+  40% {
+    -webkit-transform: rotateX(0deg);
+  }
+  50% {
+    -webkit-transform: rotateX(180deg);
+  }
+  90% {
+    -webkit-transform: rotateX(180deg);
+  }
+  100% {
+    -webkit-transform: rotateX(0deg);
+  }
+}
+@-webkit-keyframes mymoveback {
+  40% {
+    -webkit-transform: rotateX(-180deg);
+  }
+  50% {
+    -webkit-transform: rotateX(0deg);
+  }
+  90% {
+    -webkit-transform: rotateX(0deg);
+  }
+  100% {
+    -webkit-transform: rotateX(-180deg);
+  }
+}
+
+@keyframes mymove {
+  40% {
+    transform: rotateX(0deg);
+  }
+  50% {
+    transform: rotateX(180deg);
+  }
+  90% {
+    transform: rotateX(180deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+@keyframes mymoveback {
+  40% {
+    transform: rotateX(-180deg);
+  }
+  50% {
+    transform: rotateX(0deg);
+  }
+  90% {
+    transform: rotateX(0deg);
+  }
+  100% {
+    transform: rotateX(-180deg);
+  }
+}
+
+
+</style>
